@@ -1,52 +1,23 @@
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background: #f2f2f2;
-    font-family: 'Arial', sans-serif;
+let display = document.getElementById("display");
+
+function appendValue(value) {
+if(display.value === "0"){
+display.value = value;
+}
+else{
+display.value += value;
+}
 }
 
-.calculator {
-    background: #3498db;
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-    width: 250px;
+function clearDisplay() {
+display.value = "0";
 }
 
-#display {
-    width: 100%;
-    height: 60px;
-    text-align: right;
-    font-size: 32px;
-    margin-bottom: 15px;
-    border: none;
-    border-radius: 10px;
-    padding: 10px;
+function calculate() {
+try {
+display.value = eval(display.value);
 }
-
-.buttons {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 10px;
+catch {
+display.value = "Error";
 }
-
-button {
-    padding: 20px;
-    font-size: 20px;
-    border: none;
-    border-radius: 10px;
-    background: #2980b9;
-    color: white;
-    cursor: pointer;
-    transition: background 0.2s;
-}
-
-button:hover {
-    background: #1c5980;
-}
-
-.span2 {
-    grid-column: span 2;
 }
